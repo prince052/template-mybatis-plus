@@ -1,0 +1,32 @@
+mybatisGenerator:
+
+  datasource:
+#    配置数据源
+    type: mysql
+    address: mysql.svc:3306
+    db: qbank_compile_bak
+    username:
+    password:
+
+  targetPackage:
+#    配置实体类位置
+    model: com.example.model
+#    配置mapper位置
+    mapper: com.example.mapper
+    javaXmlFilesSamePackage: false
+
+  targetRuntime: MyBatis3
+  mapperSuffixName: mapper
+  java8: false
+  disableExample: false
+
+  plugins:
+    comment: false
+    lombok: true
+    swagger: false
+    mapperAnnotation: false
+    serializable: true
+# 将所有表配置在下面，示例。。
+  tables:
+    - knowledge_tree
+    - paper

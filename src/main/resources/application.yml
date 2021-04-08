@@ -1,0 +1,44 @@
+spring:
+  profiles:
+    active: dev
+  mvc:
+    throwExceptionIfNoHandlerFound: true
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+    serialization:
+      write-dates-as-timestamps: false
+  http:
+    multipart:
+      maxFileSize: 10MB
+      maxRequestSize: 10MB
+
+mybatis:
+#  配置mapper.xml
+  mapper-locations: classpath:mapper/*.xml
+#  配置实体类位置
+  type-aliases-package: com.example.model
+
+  configuration:
+    call-setters-on-nulls: true
+    map-underscore-to-camel-case: true
+
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
+
+path:
+  includes:
+    - /**
+  excludes:
+    #swagger start
+    - /swagger-resources/**
+    - /webjars/**
+    - /swagger-ui.html/**
+    - /doc.html
+    - /favicon.ico
+    - /service-worker.js
+    - /precache-manifest**
+    #swagger end
